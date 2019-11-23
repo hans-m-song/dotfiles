@@ -28,7 +28,7 @@ fi
 ln -f custom.zsh $ZSH_CUSTOM/custom.zsh
 
 #nvm
-if ! [ -x "$(command -v nvm)" ]; then
+if ! [ -z $NVM_DIR ]; then
     echo "no nvm command found, installing from internet"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash 
 fi
