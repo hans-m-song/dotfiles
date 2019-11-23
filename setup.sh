@@ -30,7 +30,7 @@ ln -f custom.zsh $ZSH_CUSTOM/custom.zsh
 #nvm
 if ! [ -x "$(command -v nvm)" ]; then
     echo "no nvm command found, installing from internet"
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash && nvm install --lts
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash 
 fi
 
 ln -f .zshrc ~/.zshrc
