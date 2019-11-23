@@ -1,7 +1,9 @@
+#!/bin/bash
+
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y \
-         build-essential git 
+         build-essential git zsh curl wget
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+#zsh
+chsh -s $(which zsh)

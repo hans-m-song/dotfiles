@@ -26,5 +26,4 @@ SERV_BKUP='/run/user/1000/gvfs/smb-share:server=h4n5-server,share=backup/hans/'
 
 CRAWLER_OUTPUT_DIR=$HOME/workspace/jaca/credfin-worker/debugout/
 
-
 refreshnipple
