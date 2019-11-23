@@ -1,4 +1,9 @@
 #!/bin/bash
 
-if [[ $(command -v a) && $? == 0 ]]; then echo "test"
+#if ! [ -x "$(command -v bash)" ]; then
+#if [[ -d "$HOME/test folder" ]]; then
+if [[ -z "$TEST" ]]; then
+    echo "yes"
+else
+    echo "no"
 fi
