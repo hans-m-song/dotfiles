@@ -6,4 +6,4 @@ sudo apt install -y \
          build-essential git zsh curl wget
 
 #zsh
-chsh -s $(which zsh)
+if [[ $SHELL != "/usr/bin/zsh" ]]; then chsh -s $(which zsh); fi

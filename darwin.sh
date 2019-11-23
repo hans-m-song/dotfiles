@@ -11,14 +11,14 @@ if [[ ! -d "/Applications/iTerm.app" ]]; then
     echo "iTerm not found, installing with brew"
     brew cask install iterm2
 fi
-ln -sf iterm2 ~/.config/iterm2
+ln -f iterm2 ~/.config/iterm2
 
 #vscode
 if [[ ! -d "/Applications/Visual Studio Code.app" ]]; then
     echo "VSCode not found, installing with brew"
     brew cask install visual-studio-code
 fi
-ln -sf code/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -f code/settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 #zsh
 echo "updating zsh with brew"
