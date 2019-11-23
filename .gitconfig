@@ -1,0 +1,14 @@
+[user]
+	name = Hans Song
+	email = hans.m.song@gmail.com
+[core]
+        editor = vim
+
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
