@@ -49,9 +49,10 @@
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/node_modules/**": true,
-        "**/dist/**"
+        "**/dist/**": false
     },
     "vsicons.dontShowNewVersionMessage": true,
     "java.configuration.checkProjectSettingsExclusions": false,
     "python.jediEnabled": false,
+    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
 }

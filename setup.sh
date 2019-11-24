@@ -16,20 +16,17 @@ esac
 
 #fonts
 if [[ ! -d ~/.misc/fonts ]]; then
-    echo "no powerline fonts found, installing from the internet"
     git clone --depth=1 https://github.com/powerline/fonts.git ~/.misc/fonts && ~/misc/fonts/install.sh
 fi
 
 #oh-my-zsh
 if [[ -z $ZSH ]]; then
-    echo "no oh-my-zsh installation found, installing from the internet"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 ln -f custom.zsh $ZSH_CUSTOM/custom.zsh
 
 #nvm
 if ! [ -z $NVM_DIR ]; then
-    echo "no nvm command found, installing from internet"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash 
 fi
 
