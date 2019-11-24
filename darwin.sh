@@ -11,7 +11,8 @@ brew install \
 brew cask install \
          iterm2 \
          slack \
-         visual-studio-code
+         visual-studio-code \
+         mysqlworkbench
 
 ln -f code/settings.json ~/Library/Application\ Support/Code/User/settings.json
 
