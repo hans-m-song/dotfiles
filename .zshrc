@@ -6,8 +6,10 @@ export NVM_DIR="$HOME/.nvm"
 SERV_BKUP='/run/user/1000/gvfs/smb-share:server=h4n5-server,share=backup/hans/'
 
 ZSH_THEME="agnoster"
-
-zstyle :omz:plugins:ssh-agent identities id_rsa github
+SSH_IDS="id_rsa"
+if [[ -f '$HOME/.ssh/github' ]]; then SSH_IDS="$SSH_IDS github"; fi
+if [[ -f '$HOME/.ssh/gitlab' ]]; then SSH_IDS="$SSH_IDS gitlab"; fi
+zstyle :omz:plugins:ssh-agent identities $SSH_IDS
 plugins=(git ssh-agent nvm)
 
 source $ZSH/oh-my-zsh.sh
