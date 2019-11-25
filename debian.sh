@@ -1,10 +1,6 @@
 #!/bin/bash
 
-#vscode
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-
+#basic stuff
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y \
@@ -13,9 +9,20 @@ sudo apt install -y \
          git \
          zsh \
          curl \
-         wget \
-         code
+         file
 
+#linuxbrew
+if [[ ! -d $HOME/.linuxbrew ]]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+    test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+    echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+fi
+
+./brew.sh
+
+ln -f code/settings.json ~/.config/Code/User/settings.json
 
 #zsh
 if [[ $SHELL != "/usr/bin/zsh" ]]; then chsh -s $(which zsh); fi
