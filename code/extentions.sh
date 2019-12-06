@@ -13,7 +13,6 @@ code --install-extension PKief.material-icon-theme
 code --install-extension redhat.java
 code --install-extension redhat.vscode-xml
 code --install-extension silverbulleters.sonarqube-inject
-code --install-extension SonarSource.sonarlint-vscode
 code --install-extension tomoki1207.pdf
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 code --install-extension vscjava.vscode-java-debug

@@ -20,9 +20,9 @@ if [[ ! -d $HOME/.linuxbrew ]]; then
     echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 fi
 
-./brew.sh
-
-ln -f code/settings.json ~/.config/Code/User/settings.json
+#directory for vscode settings
+if [[! -d ~/.config/Code ]]; then mkdir ~/.config/Code; fi
+if [[! -d ~/.config/Code/User ]]; then mkdir ~/.config/Code/User; fi
 
 #zsh
 if [[ $SHELL != "/usr/bin/zsh" ]]; then chsh -s $(which zsh); fi

@@ -2,15 +2,14 @@ export ZSH=$HOME/.oh-my-zsh
 export CRAWLER_OUTPUT_DIR=$HOME/workspace/jaca/credfin-worker/debugout/
 export NODE_ENV=development
 export NVM_DIR="$HOME/.nvm"
-
-SERV_BKUP='/run/user/1000/gvfs/smb-share:server=h4n5-server,share=backup/hans/'
-
+export SERV_BKUP='/run/user/1000/gvfs/smb-share:server=h4n5-server,share=backup/hans/'
+export EDITOR=vim
 ZSH_THEME="agnoster"
 SSH_IDS="id_rsa"
 if [[ -f '$HOME/.ssh/github' ]]; then SSH_IDS="$SSH_IDS github"; fi
 if [[ -f '$HOME/.ssh/gitlab' ]]; then SSH_IDS="$SSH_IDS gitlab"; fi
 zstyle :omz:plugins:ssh-agent identities $SSH_IDS
-plugins=(git ssh-agent nvm)
+plugins=(git ssh-agent nvm git-auto-fetch)
 
 source $ZSH/oh-my-zsh.sh
 
