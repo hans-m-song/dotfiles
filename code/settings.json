@@ -55,4 +55,5 @@
     "java.configuration.checkProjectSettingsExclusions": false,
     "python.jediEnabled": false,
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+    "git.suggestSmartCommit": false,
 }
