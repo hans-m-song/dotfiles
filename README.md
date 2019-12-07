@@ -7,9 +7,9 @@ currently only supports osx and debian (with `apt-get`)
 | zsh              	| &#9745; 	| &#9745; 	| &#9745;   	| &#9745; 	|
 | brew             	| &#9745; 	| &#9745; 	| &#9745;   	| &#9745; 	|
 | git              	| &#9745; 	| &#9745; 	| &#9745;   	| &#9745; 	|
-| mysql workbench  	| &#9745; 	| &#9745; 	| to remove 	|         	|
-| slack            	| &#9745; 	| &#9745; 	| to remove 	|         	|
-| vscodium         	| &#9745; 	| &#9745; 	| to remove 	| &#9745; 	|
+| mysql workbench  	| &#9745; 	| &#9745; 	|            	|         	|
+| slack            	| &#9745; 	| &#9745; 	|           	|         	|
+| vscodium         	| &#9745; 	| &#9745; 	|           	| &#9745; 	|
 | iterm2           	|         	| &#9745; 	|           	| todo    	|
 | macs-fan-control 	|         	| &#9745; 	|           	| todo    	|
 | spectacle        	|         	| &#9745; 	|           	|         	|
@@ -19,9 +19,9 @@ currently only supports osx and debian (with `apt-get`)
 
 ## usage
 
-`./setup.sh`: install/set up
+`./setup.sh`: regular setup
 
-`./server.sh`:  install server specific programs
+`./setup.sh server`:  set up for server
 
 `./merge.sh`: merge new changes (uses sdiff)
 
