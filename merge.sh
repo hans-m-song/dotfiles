@@ -4,7 +4,7 @@
 function merge () {
     if [[ -f "$2" ]]; then
         echo "merging $1 into $2"
-        sdiff -s -o "$2" "$1" "$2"
+        sdiff -o "$2" "$1" "$2"
     else
         echo "copying $1 to $2"
         cp "$1" "$2"
