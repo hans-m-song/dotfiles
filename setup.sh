@@ -29,4 +29,7 @@ if [[ -d $NVM_DIR ]]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash 
 fi
 
+#vim
+cp .vim $HOME/.vim
+
 ./merge.sh
