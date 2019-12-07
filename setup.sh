@@ -20,15 +20,13 @@ if [[ ! -d ~/.misc/fonts ]]; then
 fi
 
 #oh-my-zsh
-if [[ -z $ZSH ]]; then
+if [[ -d $ZSH ]]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
 #nvm
-if ! [ -z $NVM_DIR ]; then
+if [[ -d $NVM_DIR ]]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash 
 fi
-
-./brew.sh
 
 ./merge.sh
