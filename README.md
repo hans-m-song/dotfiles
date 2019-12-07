@@ -25,6 +25,6 @@ currently only supports osx and debian (with `apt-get`)
 
 `./merge.sh`: merge new changes (uses sdiff)
 
-`./codium/export.sh`: export extentions to `codium/extensions.sh`
+`./codium/export.sh`: export extensions to `codium/extensions.sh`
 
 `./codium/import.sh`: install exported extensions
