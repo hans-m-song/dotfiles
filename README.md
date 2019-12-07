@@ -20,6 +20,8 @@ installs specific to debian:
 installs specific to osx:
 
 - iterm2
+- macs-fan-control
+- spectacle
 
 installs for server:
 
