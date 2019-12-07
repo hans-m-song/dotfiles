@@ -18,7 +18,7 @@ merge custom.zsh $ZSH/custom/custom.zsh
 
 case "$OSTYPE" in
     darwin*)
-        merge codium/settings.json ~/Library/Application\ Support/Code/User/settings.json
+        merge codium/settings.json ~/Library/Application\ Support/VSCodium/User/settings.json
         ;;
     linux*)
         merge codium/settings.json ~/.config/VSCodium/User/settings.json
