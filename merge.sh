@@ -21,7 +21,13 @@ case "$OSTYPE" in
         merge codium/settings.json ~/Library/Application\ Support/VSCodium/User/settings.json
         ;;
     linux*)
-        merge codium/settings.json ~/.config/VSCodium/User/settings.json
+        if [[ $1 = "server" ]]; then
+            merge smb.conf /etc/samba/smb.conf
+            merge minidlna.conf /etc/minidlna.conf
+            echo "server merge"
+        else
+            merge codium/settings.json ~/.config/VSCodium/User/settings.json
+        fi
         ;;
 esac
 
