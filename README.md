@@ -13,9 +13,10 @@ currently only supports osx and debian (with `apt-get`)
 | iterm2           	|         	| &#9745; 	|           	| todo    	|
 | macs-fan-control 	|         	| &#9745; 	|           	| todo    	|
 | spectacle        	|         	| &#9745; 	|           	|         	|
-| pihole           	|         	|         	| &#9745;   	| todo    	|
-| minidlna         	|         	|         	| &#9745;   	| todo    	|
-| samba            	|         	|         	| &#9745;   	| todo    	|
+| pihole           	|         	|         	| &#9745;   	| todo     	|
+| minidlna         	|         	|         	| &#9745;   	| &#9745;  	|
+| samba            	|         	|         	| &#9745;   	| &#9745;  	|
+| deluge           	|         	|         	| &#9745;   	| todo    	|
 
 ## usage
 
