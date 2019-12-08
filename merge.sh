@@ -24,6 +24,7 @@ case "$OSTYPE" in
         if [[ $1 = "server" ]]; then
             merge smb.conf /etc/samba/smb.conf
             merge minidlna.conf /etc/minidlna.conf
+            #not sure about this merge hdparm.conf /etc/hdparm.conf
             echo "server merge"
         else
             merge codium/settings.json ~/.config/VSCodium/User/settings.json

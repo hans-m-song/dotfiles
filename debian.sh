@@ -25,9 +25,14 @@ if [[ $1 = "server" ]]; then
     #pihole
     curl -sSL https://install.pi-hole.net | bash
 
+    #deluge
+    sudo add-apt-repository ppa:deluge-team/ppa
+    sudo apt-get update
+
     sudo apt install -y \
             minidlna \
-            samba
+            samba \
+            deluge
 else
     echo "regular"
     #vscodium
