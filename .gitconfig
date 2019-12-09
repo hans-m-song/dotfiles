@@ -3,7 +3,6 @@
 	email = hans.m.song@gmail.com
 [core]
         editor = vim
-
 [push]
 	default = simple
 [diff]
@@ -12,3 +11,5 @@
 	prompt = false
 [alias]
 	d = difftool
+[remote "origin"]
+	prune = true
