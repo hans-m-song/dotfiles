@@ -13,3 +13,5 @@
 	d = difftool
 [remote "origin"]
 	prune = true
+[rebase]
+	autoStash = true
