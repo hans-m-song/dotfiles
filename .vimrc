@@ -12,7 +12,7 @@ set autoindent
 set cindent
 
 " show line numbers "
-set number relativenumber
+set number
 set nu
 set ruler
 set numberwidth=4
@@ -27,12 +27,3 @@ set hlsearch
 set splitbelow
 set splitright
 
-" folding functions "
-"set foldmethod=indent
-"set foldlevel=1
-
-" change ctrl+w j into ctrl+j "
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>

@@ -2,7 +2,7 @@
 	name = Hans Song
 	email = hans.m.song@gmail.com
 [core]
-        editor = vim
+	editor = vim
 [push]
 	default = simple
 [diff]
@@ -15,3 +15,5 @@
 	prune = true
 [rebase]
 	autoStash = true
+[pull]
+	rebase = true
