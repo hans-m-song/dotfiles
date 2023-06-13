@@ -3,16 +3,8 @@
 	email = hans.m.song@gmail.com
 [core]
 	editor = vim
-[push]
-	default = simple
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
-[alias]
-	d = difftool
-[remote "origin"]
-	prune = true
+[init]
+	defaultBranch = master
 [rebase]
 	autoStash = true
 [pull]
