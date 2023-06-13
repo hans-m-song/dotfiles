@@ -1,9 +1,8 @@
 export ZSH=$HOME/.oh-my-zsh
-export NVM_DIR="$HOME/.nvm"
 export EDITOR=vim
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# zstyle :omz:plugins:ssh-agent identities id_rsa id_ed25519
+# zstyle :omz:plugins:ssh-agent identities id_rsa
 plugins=(aws gh git ssh-agent kubectl)
 source $ZSH/oh-my-zsh.sh
 autoload -U add-zsh-hook
@@ -15,7 +14,11 @@ eval "$(direnv hook zsh)"
 
 # nvm
 load-nvmrc() {
-  test -f .nvmrc && command -v nvm >/dev/null && nvm use
+  test -f .nvmrc &&
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" &&
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" &&
+    command -v nvm >/dev/null &&
+    nvm use
 }
 
 add-zsh-hook chpwd load-nvmrc
