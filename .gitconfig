@@ -1,11 +1,27 @@
 [user]
-	name = Hans Song
-	email = hans.m.song@gmail.com
-[core]
-	editor = vim
+name = Hans Song
+email = hans.m.song@gmail.com
+
 [init]
-	defaultBranch = master
+defaultBranch = master
+
+[core]
+editor = vim
+
+[push]
+default = simple
+
+[diff]
+tool = vimdiff
+
+[difftool]
+prompt = false
+
 [rebase]
-	autoStash = true
+autoStash = true
+
 [pull]
-	rebase = true
+rebase = true
+
+[includeIf "gitdir:~/Workspace/fclimited/"]
+path = .gitconfig_fclimited

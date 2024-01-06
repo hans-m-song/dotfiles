@@ -16,6 +16,9 @@ case $(uname -s) in
     ;;
 esac
 
+if [[ ! -f ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
 mkdir -p ~/.config
 ln -sf $(pwd)/nvim $HOME/.config/nvim
 vim ./nvim/lua/hans-m-song/packer.lua +source +PackerSync

@@ -1,6 +1,7 @@
 -- misc
 vim.opt.showmode = false
 vim.opt.compatible = false
+vim.opt.backspace = 'indent,eol,start'
 
 -- gutter
 vim.opt.number = true

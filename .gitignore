@@ -1,2 +1,5 @@
 *.swp
 test*
+.dccache
+.DS_Store
+packer_compiled.lua
