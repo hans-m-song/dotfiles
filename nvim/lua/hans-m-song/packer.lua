@@ -41,6 +41,11 @@ return require('packer').startup(function(use)
     })
     use({ 'theprimeagen/harpoon' })
     use({ 'preservim/nerdtree' })
+    use({
+        'akinsho/bufferline.nvim',
+        tag = '*',
+        requires = { 'nvim-tree/nvim-web-devicons' },
+    })
 
     -- utility
     use({ 'mbbill/undotree' })

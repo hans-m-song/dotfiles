@@ -6,7 +6,7 @@ lsp.on_attach(function(client, bufnr)
 
     vim.keymap.set({ 'n' }, '<leader>vws', vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set({ 'n' }, '<leader>vd', vim.diagnostic.open_float, opts)
-    vim.keymap.set({ 'n', 'i' }, '<leader>vca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set({ 'n' }, '<leader>vca', vim.lsp.buf.code_action, opts)
     vim.keymap.set({ 'n' }, '[d', vim.diagnostic.goto_next, opts)
     vim.keymap.set({ 'n' }, ']d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set({ 'n', 'i' }, '<C-d>', vim.diagnostic.open_float, opts)
@@ -22,6 +22,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
     ensure_installed = {
+        'ansiblels',
         'bashls',
         'docker_compose_language_service',
         'dockerls',
