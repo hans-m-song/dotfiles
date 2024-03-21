@@ -6,12 +6,21 @@ return require('packer').startup(function(use)
 
     -- theme
     use({ 'navarasu/onedark.nvim' })
-    use({ 'nvim-lualine/lualine.nvim', requires = { { 'nvim-tree/nvim-web-devicons' } } })
+    use({
+        'nvim-lualine/lualine.nvim',
+        requires = { { 'nvim-tree/nvim-web-devicons' } }
+    })
 
     -- syntax
-    use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+    use({
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    })
     -- use({ 'nvim-treesitter/nvim-treesitter-refactor' })
-    use({ 'nvim-treesitter/playground', requires = { 'nvim-treesitter/nvim-treesitter' } })
+    use({
+        'nvim-treesitter/playground',
+        requires = { { 'nvim-treesitter/nvim-treesitter' } }
+    })
     use({
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -43,7 +52,7 @@ return require('packer').startup(function(use)
     use({
         'akinsho/bufferline.nvim',
         tag = '*',
-        requires = { 'nvim-tree/nvim-web-devicons' },
+        requires = { { 'nvim-tree/nvim-web-devicons' } },
     })
 
     -- utility
@@ -55,4 +64,5 @@ return require('packer').startup(function(use)
     use({ 'tpope/vim-commentary' })
     use({ 'tpope/vim-surround' })
     use({ 'ap/vim-css-color' })
+    use({ 'lewis6991/gitsigns.nvim' })
 end)
