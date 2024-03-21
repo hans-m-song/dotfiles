@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
 
 lsp.preset('recommended')
 lsp.on_attach(function(client, bufnr)
@@ -19,8 +20,61 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
     ensure_installed = {
+    },
+    handlers = {
+        lsp.default_setup,
+
+        hls = function()
+            lspconfig.hls.setup({
+                settings = {
+                    haskell = {
+                        formattingProvider = 'fourmolu',
+                    },
+                },
+            })
+        end,
+
+        lua_ls = function()
+            lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+        end,
+
+        yamlls = function()
+            lspconfig.yamlls.setup({
+                settings = {
+                    yaml = {
+                        customTags = {
+                            '!And',
+                            '!Base64',
+                            '!Cidr',
+                            '!Condition',
+                            '!Equals',
+                            '!FindInMap',
+                            '!GetAZs',
+                            '!GetAtt',
+                            '!If',
+                            '!ImportValue',
+                            '!Join',
+                            '!Not',
+                            '!Or',
+                            '!Ref',
+                            '!Ref',
+                            '!Select',
+                            '!Split',
+                            '!Sub',
+                            '!Transform',
+                        },
+                    }
+                }
+            })
+        end,
+    },
+})
+
+require('mason-tool-installer').setup({
+    ensure_installed = {
+        -- lsp
+        -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
         'ansiblels',
         'bashls',
         'docker_compose_language_service',
@@ -36,62 +90,32 @@ require('mason-lspconfig').setup({
         'pylsp',
         'rust_analyzer',
         'sqlls',
-        'tflint',
+        'terraformls',
         'tsserver',
         'vimls',
         'yamlls',
-    },
-    handlers = {
-        lsp.default_setup,
-        lua_ls = function()
-            require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-        end,
 
-        hls = function()
-            require('lspconfig').hls.setup({
-                settings = {
-                    haskell = {
-                        formattingProvider = 'fourmolu',
-                    },
-                },
-            })
-        end,
+        -- dap
+        'delve',
+        'haskell-debug-adapter',
 
-        yamlls = function()
-            require('lspconfig').yamlls.setup({
-                settings = {
-                    yaml = {
-                        schemaStore = {
-                            enable = true,
-                        },
-                        schemas = {
-                            'https://raw.githubusercontent.com/awslabs/goformation/v4.18.2/schema/cloudformation.schema.json: "/*"',
-                        },
-                        customTags = {
-                            "!Base64",
-                            "!Cidr",
-                            "!And",
-                            "!Equals",
-                            "!If",
-                            "!Not",
-                            "!Or",
-                            "!Condition",
-                            "!FindInMap",
-                            "!GetAtt",
-                            "!GetAZs",
-                            "!ImportValue",
-                            "!Join",
-                            "!Select",
-                            "!Split",
-                            "!Sub",
-                            "!Transform mapping",
-                            "!Ref",
-                        },
-                    }
-                }
-            })
-        end,
-    },
+        -- linter
+        'ansible-lint',
+        'cfn-lint',
+        'golangci-lint',
+        'jsonlint',
+        'shellcheck',
+        'tflint',
+        'yamllint',
+
+        -- formatter
+        'black',
+        'fourmolu',
+        'hclfmt',
+        'mdformat',
+        'jsonlint',
+        'shfmt',
+    }
 })
 
 local cmp = require('cmp')
@@ -112,5 +136,65 @@ cmp.setup({
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         ['<C-e>'] = cmp.mapping.close(),
+    },
+})
+
+require('nvim-treesitter.configs').setup({
+    -- https://github.com/nvim-treesitter/nvim-treesitter/#supported-languages
+    ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'dockerfile',
+        'git_config',
+        'git_rebase',
+        'gitattributes',
+        'gitcommit',
+        'gitignore',
+        'go',
+        'gomod',
+        'gosum',
+        'haskell',
+        'hcl',
+        'html',
+        'ini',
+        'javascript',
+        'json',
+        'jsonc',
+        'lua',
+        'markdown',
+        'python',
+        'query',
+        'rust',
+        'sql',
+        'ssh_config',
+        'terraform',
+        'toml',
+        'typescript',
+        'vim',
+        'vimdoc',
+        'xml',
+        'yaml',
+    },
+
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+
+    -- Automatically install missing parsers when entering buffer
+    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+    auto_install = true,
+
+    highlight = {
+        enable = true,
+
+        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+        -- Using this option may slow down your editor, and you may see some duplicate highlights.
+        -- Instead of true it can also be a list of languages
+        additional_vim_regex_highlighting = false,
+    },
+
+    indent = {
+        enable = true,
     },
 })

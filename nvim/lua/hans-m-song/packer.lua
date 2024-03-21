@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
             -- language servers
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
+            { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
             { 'neovim/nvim-lspconfig' },
             -- autocompletion
             { 'hrsh7th/nvim-cmp' },
@@ -35,6 +36,7 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-nvim-lua' },
+            -- snippets
             { 'saadparwaiz1/cmp_luasnip' },
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
