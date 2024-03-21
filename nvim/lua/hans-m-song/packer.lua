@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
             -- language servers
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
-            -- lsp
             { 'neovim/nvim-lspconfig' },
             -- autocompletion
             { 'hrsh7th/nvim-cmp' },
@@ -52,4 +51,8 @@ return require('packer').startup(function(use)
     use({ 'tpope/vim-fugitive' })
     use({ 'tpope/vim-rhubarb' })
     use({ 'github/copilot.vim' })
+    use({ 'airblade/vim-rooter' })
+    use({ 'tpope/vim-commentary' })
+    use({ 'tpope/vim-surround' })
+    use({ 'ap/vim-css-color' })
 end)

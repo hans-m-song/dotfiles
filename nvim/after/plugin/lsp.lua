@@ -7,6 +7,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set({ 'n' }, '<leader>vws', vim.lsp.buf.workspace_symbol, opts)
     vim.keymap.set({ 'n' }, '<leader>vd', vim.diagnostic.open_float, opts)
     vim.keymap.set({ 'n' }, '<leader>vca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set({ 'n' }, '<leader>vaf', lsp.buffer_autoformat, opts)
     vim.keymap.set({ 'n' }, '[d', vim.diagnostic.goto_next, opts)
     vim.keymap.set({ 'n' }, ']d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set({ 'n', 'i' }, '<C-d>', vim.diagnostic.open_float, opts)
@@ -14,8 +15,6 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set({ 'n', 'i' }, '<F2>', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'i' }, '<F12>', vim.lsp.buf.definition, opts)
     vim.keymap.set({ 'n', 'i' }, '<C-F12>', vim.lsp.buf.references, opts)
-
-    lsp.buffer_autoformat()
 end)
 
 require('mason').setup({})
@@ -54,6 +53,40 @@ require('mason-lspconfig').setup({
                         formattingProvider = 'fourmolu',
                     },
                 },
+            })
+        end,
+        yamlls = function()
+            require('lspconfig').yamlls.setup({
+                settings = {
+                    yaml = {
+                        schemaStore = {
+                            enable = true,
+                        },
+                        schemas = {
+                            'https://raw.githubusercontent.com/awslabs/goformation/v4.18.2/schema/cloudformation.schema.json: "/*"',
+                        },
+                        customTags = {
+                            "!Base64",
+                            "!Cidr",
+                            "!And",
+                            "!Equals",
+                            "!If",
+                            "!Not",
+                            "!Or",
+                            "!Condition",
+                            "!FindInMap",
+                            "!GetAtt",
+                            "!GetAZs",
+                            "!ImportValue",
+                            "!Join",
+                            "!Select",
+                            "!Split",
+                            "!Sub",
+                            "!Transform mapping",
+                            "!Ref",
+                        },
+                    }
+                }
             })
         end,
     },
