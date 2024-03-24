@@ -52,7 +52,13 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     })
     use({ 'theprimeagen/harpoon' })
-    use({ 'preservim/nerdtree' })
+    use({
+        'preservim/nerdtree',
+        requires = {
+            { 'Xuyuanp/nerdtree-git-plugin' },
+            { 'ryanoasis/vim-devicons' },
+        }
+    })
     use({
         'akinsho/bufferline.nvim',
         tag = '*',

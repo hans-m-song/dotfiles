@@ -3,6 +3,9 @@ vim.g.NERDTreeShowHidden = 1
 vim.g.NERDTreeHijackNetrw = 1
 vim.g.NERDTreeChDirMode = 3
 
+vim.g.NERDTreeGitStatusUseNerdFonts = 1
+vim.g.NERDTreeGitStatusConcealBrackets = 1
+
 vim.keymap.set({ 'n', 'i' }, '<C-b>', vim.cmd.NERDTreeToggle)
 vim.keymap.set({ 'n' }, '<leader>r', vim.cmd.NERDTreeFind)
 
