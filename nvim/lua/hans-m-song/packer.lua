@@ -42,6 +42,8 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     })
+    use({ 'mfussenegger/nvim-lint' })
+    -- use({ 'stevearc/conform.nvim' })
 
     -- navigation
     use({
@@ -62,7 +64,7 @@ return require('packer').startup(function(use)
     use({ 'tpope/vim-fugitive' })
     use({ 'tpope/vim-rhubarb' })
     use({ 'github/copilot.vim' })
-    use({ 'airblade/vim-rooter' })
+    -- use({ 'airblade/vim-rooter' })
     use({ 'tpope/vim-commentary' })
     use({ 'tpope/vim-surround' })
     use({ 'ap/vim-css-color' })

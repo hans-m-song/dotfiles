@@ -5,12 +5,12 @@ lsp.preset('recommended')
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set({ 'n' }, '<leader>vws', vim.lsp.buf.workspace_symbol, opts)
-    vim.keymap.set({ 'n' }, '<leader>vd', vim.diagnostic.open_float, opts)
-    vim.keymap.set({ 'n' }, '<leader>vca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set({ 'n' }, '<leader>vaf', vim.lsp.buf.format, opts)
-    vim.keymap.set({ 'n' }, '[d', vim.diagnostic.goto_next, opts)
-    vim.keymap.set({ 'n' }, ']d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set({ 'n' },      '<leader>vws', vim.lsp.buf.workspace_symbol, opts)
+    vim.keymap.set({ 'n' },      '<leader>vd',  vim.diagnostic.open_float, opts)
+    vim.keymap.set({ 'n' },      '<leader>vca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set({ 'n' },      '<leader>vaf', vim.lsp.buf.format, opts)
+    vim.keymap.set({ 'n' },      '[d', vim.diagnostic.goto_next, opts)
+    vim.keymap.set({ 'n' },      ']d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set({ 'n', 'i' }, '<C-d>', vim.diagnostic.open_float, opts)
     vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.hover, opts)
     vim.keymap.set({ 'n', 'i' }, '<F2>', vim.lsp.buf.rename, opts)
@@ -117,6 +117,29 @@ require('mason-tool-installer').setup({
         'shfmt',
     }
 })
+
+-- local conform = require('conform')
+-- conform.setup({
+--     formatters_by_ft = {
+--         go = { 'gofmt' },
+--         haskell = { 'fourmolu' },
+--         javascript = { 'prettier' },
+--         json = { 'jsonlint' },
+--         lua = { 'stylua' },
+--         markdown = { 'mdformat' },
+--         python = { 'isort', 'black' },
+--         terraform = { 'terraform_fmt' },
+--         typescript = { 'prettier' },
+--         yaml = { 'yamllint' },
+--     }
+-- })
+
+-- vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+--     pattern = '*',
+--     callback = function(args)
+--         conform.format({ bufnr = args.buf })
+--     end,
+-- })
 
 local cmp = require('cmp')
 cmp.setup({
