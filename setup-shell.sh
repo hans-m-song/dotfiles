@@ -1,5 +1,5 @@
 #!/bin/bash
-set -evo pipefail
+set -eo pipefail
 
 OS=$(uname -s)
 
@@ -23,8 +23,14 @@ Darwin)
   xcode-select --install
 
   brew install \
-    spectacle \
+    fork \
+    iterm2 \
+    rectangle \
+    slack \
     speedcrunch \
+    stats \
+    visual-studio-code \
+    zerotier-one
   ;;
 
 *)
@@ -34,16 +40,20 @@ Darwin)
 esac
 
 brew install \
+  ansible \
   awscli \
   direnv \
+  eksctl \
   ffmpeg \
   fontconfig \
   gh \
   helmfile \
+  hugo \
   jq \
   k9s \
   kubectx \
   neofetch \
+  neovim \
   python-yq \
   ripgrep \
   stern \

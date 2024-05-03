@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -evo pipefail
+set -eo pipefail
 
 # nvm
 if [[ -z "$INSTALL_NVM" ]]; then
