@@ -1,5 +1,9 @@
 exists() { command -v $1 >/dev/null; }
 
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+export EDITOR=vim
+export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git ssh-agent)
@@ -10,21 +14,13 @@ exists nvim && alias vim=nvim
 exists pip3 && alias pip=pip3
 exists python3 && alias python=python3
 
-export EDITOR=vim
-export PATH=$PATH:/opt/homebrew/bin
-
-exists brew && eval "$(brew shellenv zsh)"
+exists atlas && eval "$(atlas completion zsh)"
 exists direnv && eval "$(direnv hook zsh)"
 exists gh && eval "$(gh completion --shell zsh)"
 exists helm && eval "$(helm completion zsh)"
 exists kubectl && eval "$(kubectl completion zsh)"
-(
-  autoload -U +X bashcompinit && bashcompinit
-  complete -o nospace -C /opt/homebrew/Cellar/tfenv/3.0.0/versions/1.8.2/terraform terraform
-)
-(
-  autoload -Uz compinit && compinit
-)
+exists aws && complete -o nospace -C aws_completer aws
+exists terraform && complete -o nospace -C terraform terraform
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

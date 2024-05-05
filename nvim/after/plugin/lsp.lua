@@ -25,15 +25,15 @@ require('mason-lspconfig').setup({
     handlers = {
         lsp.default_setup,
 
-        hls = function()
-            lspconfig.hls.setup({
-                settings = {
-                    haskell = {
-                        formattingProvider = 'fourmolu',
-                    },
-                },
-            })
-        end,
+        -- hls = function()
+        --     lspconfig.hls.setup({
+        --         settings = {
+        --             haskell = {
+        --                 formattingProvider = 'fourmolu',
+        --             },
+        --         },
+        --     })
+        -- end,
 
         lua_ls = function()
             lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
@@ -84,11 +84,11 @@ require('mason-tool-installer').setup({
         'gopls',
         'hls',
         'html',
-        'htmx',
+        -- 'htmx',
         'jsonls',
         'lua_ls',
         'pylsp',
-        'rust_analyzer',
+        -- 'rust_analyzer',
         'sqlls',
         'terraformls',
         'tsserver',
@@ -97,7 +97,7 @@ require('mason-tool-installer').setup({
 
         -- dap
         'delve',
-        'haskell-debug-adapter',
+        -- 'haskell-debug-adapter',
 
         -- linter
         'ansible-lint',
@@ -177,7 +177,7 @@ require('nvim-treesitter.configs').setup({
         'go',
         'gomod',
         'gosum',
-        'haskell',
+        -- 'haskell',
         'hcl',
         'html',
         'ini',
@@ -188,7 +188,7 @@ require('nvim-treesitter.configs').setup({
         'markdown',
         'python',
         'query',
-        'rust',
+        -- 'rust',
         'sql',
         'ssh_config',
         'terraform',
