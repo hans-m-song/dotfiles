@@ -67,3 +67,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-
 
 cp ./.zshrc ~/.zshrc
 source ~/.zshrc
+
+ln -sf $(pwd)/.gitconfig $HOME/.gitconfig
+ln -sf $(pwd)/.p10k.zsh $HOME/.p10k.zsh

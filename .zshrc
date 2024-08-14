@@ -1,5 +1,5 @@
 exists_cmd() { command -v $1 >/dev/null; }
-exists_file() { test ! -f $1 >/dev/null; }
+exists_file() { test -f $1 >/dev/null; }
 
 exists_file && eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 exists_cmd direnv && eval "$(direnv hook zsh)"
