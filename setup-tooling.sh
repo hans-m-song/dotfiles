@@ -7,10 +7,10 @@ if [[ -z "$INSTALL_NVM" ]]; then
     read -rp "Install NVM? (Y/n)" INSTALL_NVM
 fi
 if [[ "$INSTALL_NVM" == [yY] ]]; then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
     source ~/.nvm/nvm.sh
     nvm install --lts
-    npm install --global esbuild tsx
+    npm install --global tsx
 fi
 
 # go
@@ -36,5 +36,14 @@ if [[ -z "$INSTALL_TERRAFORM" ]]; then
 fi
 if [[ "$INSTALL_TERRAFORM" == [yY] ]]; then
     brew install tfenv terraform-docs tflint
+    tfenv install
+fi
+
+# ansible
+if [[ -z "$INSTALL_ANSIBLE" ]]; then
+    read -rp "Install Ansible? (Y/n)" INSTALL_ANSIBLE
+fi
+if [[ "$INSTALL_ANSIBLE" == [yY] ]]; then
+    brew install asible ansible-lint
     tfenv install
 fi

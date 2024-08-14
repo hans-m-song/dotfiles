@@ -3,7 +3,9 @@ set -eo pipefail
 
 OS=$(uname -s)
 
+# brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/opt/homebrew/bin/brew completions link
 
 case $OS in
 Linux)
@@ -22,14 +24,15 @@ Linux)
 Darwin)
   xcode-select --install
 
-  brew install \
+  /opt/homebrew/bin/brew install \
+    doll \
     fork \
     iterm2 \
+    karabiner-elements \
     rectangle \
     slack \
     speedcrunch \
     stats \
-    visual-studio-code \
     zerotier-one
   ;;
 
@@ -39,19 +42,15 @@ Darwin)
   ;;
 esac
 
-brew install \
-  ansible \
+/opt/homebrew/bin/brew install \
   awscli \
   direnv \
-  eksctl \
-  ffmpeg \
   fontconfig \
   gh \
   helmfile \
   hugo \
   jq \
   k9s \
-  kubectx \
   neofetch \
   neovim \
   python-yq \
@@ -65,7 +64,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-sed -i -E 's|ZSH_THEME=".*"|ZSH_THEME="powerlevel10k/powerlevel10k"|' ~/.zshrc
 
 cp ./.zshrc ~/.zshrc
 source ~/.zshrc
