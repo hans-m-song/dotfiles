@@ -45,6 +45,7 @@ esac
 /opt/homebrew/bin/brew install \
   awscli \
   direnv \
+  fd \
   fontconfig \
   gh \
   helmfile \
