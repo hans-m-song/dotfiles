@@ -4,8 +4,6 @@ vim.opt.compatible = false
 vim.opt.backspace = 'indent,eol,start'
 vim.opt.clipboard = 'unnamed,unnamedplus'
 vim.opt.termguicolors = true
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- gutter
 vim.opt.number = true
@@ -40,3 +38,5 @@ vim.keymap.set({ "n", "i" }, "<C-z>", vim.cmd.undo)
 vim.keymap.set({ "n", "i" }, "<C-r>", vim.cmd.redo)
 vim.keymap.set({ 't' }, '<Esc>', [[<C-\><C-n>]])
 vim.keymap.set({ 'n' }, '<Esc>', vim.cmd.nohlsearch)
+vim.keymap.set({ 'n', 'v' }, '/', [[/\v]])
+vim.keymap.set({ 'n', 'c' }, '%s/', [[%s/\v]])

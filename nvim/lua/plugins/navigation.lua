@@ -1,16 +1,21 @@
-local WINDOW_RATIO_WIDTH = 0.5
+local WINDOW_RATIO_WIDTH = 0.6
 local WINDOW_RATIO_HEIGHT = 0.8
 
 return {
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    init = function()
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+    end,
     config = function()
-      require("nvim-tree").setup({
+      local nt = require("nvim-tree")
+      local nt_api = require("nvim-tree.api")
+
+      nt.setup({
         view = {
-          width = function()
-            return math.floor(vim.opt.columns:get() * WINDOW_RATIO_WIDTH)
-          end,
+          number = true,
           float = {
             enable = true,
             open_win_config = function()
@@ -18,17 +23,41 @@ return {
               local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
               local window_w = screen_w * WINDOW_RATIO_WIDTH
               local window_h = screen_h * WINDOW_RATIO_HEIGHT
+              local window_w_int = math.floor(window_w)
+              local window_h_int = math.floor(window_h)
+              local center_x = (screen_w - window_w) / 2
+              local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
               return {
-                relative = "editor",
-                row = (screen_w - window_w) / 2,
-                col = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get(),
-                width = math.floor(window_w),
-                height = math.floor(window_h),
+                border = 'rounded',
+                relative = 'editor',
+                row = center_y,
+                col = center_x,
+                width = window_w_int,
+                height = window_h_int,
               }
             end,
           },
+          width = function()
+            return math.floor(vim.opt.columns:get() * WINDOW_RATIO_WIDTH)
+          end,
+        },
+        git = {
+          enable = true,
+        },
+        modified = {
+          enable = true,
+        },
+        actions = {
+          change_dir = {
+            restrict_above_cwd = true,
+          },
+          expand_all = {
+            exclude = { ".git", ".terraform", "node_modules" },
+          },
         },
       })
+
+      vim.keymap.set({ "n" }, "<leader>nt", nt_api.tree.toggle)
     end,
   },
 

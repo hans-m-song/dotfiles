@@ -1,2 +1,2 @@
-require("config.set")
+require("config.settings")
 require("config.lazy")

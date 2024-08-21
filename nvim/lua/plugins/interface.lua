@@ -1,8 +1,4 @@
 return {
-  { "stevearc/dressing.nvim", event = { "VeryLazy" } },
-  { "lewis6991/gitsigns.nvim" },
-  { "ap/vim-css-color" },
-
   {
     "navarasu/onedark.nvim",
     lazy = false,
@@ -16,20 +12,41 @@ return {
   },
 
   {
+    "lukas-reineke/indent-blankline.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    main = "ibl",
+  },
+
+  {
     "folke/noice.nvim",
-    lazy = true,
-    event = { "VimEnter" },
+    event = { "VeryLazy" },
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
     config = function()
-      require("noice").setup({
+      local notify = require("notify")
+      local noice = require("noice")
+
+      notify.setup({
+        fps = 60,
+        top_down = false,
+      })
+
+      vim.notify = notify
+
+      noice.setup({
         lsp = {
           override = {
             ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
             ["vim.lsp.util.stylize_markdown"] = true,
             ["cmp.entry.get_documentation"] = true,
+          },
+          signature = {
+            enabled = true,
+          },
+          hover = {
+            enabled = true,
           },
         },
         presets = {
@@ -46,24 +63,36 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("lualine").setup({
-        options = {
-          theme = "auto",
-        },
-      })
-    end,
+    opts = {
+      options = {
+        theme = "auto",
+      },
+    },
   },
 
   {
     "akinsho/bufferline.nvim",
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("bufferline").setup({
-        options = {
-          diagnostics = "nvim_lsp"
-        },
-      })
-    end,
+    opts = {
+      options = {
+        diagnostics = "nvim_lsp"
+      },
+    },
+  },
+
+  {
+    "stevearc/dressing.nvim",
+    event = { "VeryLazy" },
+  },
+
+  {
+    "lewis6991/gitsigns.nvim",
+    event = { "VeryLazy" },
+  },
+
+  {
+    "ap/vim-css-color",
+    event = { "VeryLazy" },
   },
 }
