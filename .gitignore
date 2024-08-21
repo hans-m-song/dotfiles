@@ -3,3 +3,4 @@ test*
 .dccache
 .DS_Store
 packer_compiled.lua
+lazy-lock.json
