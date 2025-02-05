@@ -100,7 +100,6 @@ return {
           "templ",
           "terraformls",
           "tflint",
-          "tsserver",
           "vimls",
           "yamlls",
         },

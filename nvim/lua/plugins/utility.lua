@@ -24,6 +24,10 @@ return {
     event = { "VeryLazy" },
   },
 
+  {
+    'mg979/vim-visual-multi',
+    event = { "VeryLazy" },
+  },
 
   {
     "lewis6991/gitsigns.nvim",

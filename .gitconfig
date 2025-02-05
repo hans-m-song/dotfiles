@@ -1,12 +1,12 @@
 [user]
 name = Hans Song
-email = hans.m.song@gmail.com
+email = hans.m.song+github@gmail.com
 
 [init]
 defaultBranch = master
 
 [core]
-editor = vim
+editor = nvim
 
 [push]
 default = simple
@@ -23,5 +23,14 @@ autoStash = true
 [pull]
 rebase = true
 
+[merge]
+ff = false
+
+[advice]
+skippedCherryPicks = false
+
 [includeIf "gitdir:~/Workspace/fclimited/"]
-path = .gitconfig_fclimited
+path = .fclimited.gitconfig
+
+[includeIf "gitdir:~/Workspace/montugroup/"]
+path = ~/.montugroup.gitconfig
